@@ -20,10 +20,10 @@
       break;
 
     case 'POST': //adds a row 
-      $studentLenght = count($student->all()); //last row + 1 
+      $studentLength = count($student->all()); //last row + 1 
       $result = $student->all();
 
-      $student->_id = $result[$studentLenght-1]['id'] + 1; //$studentLenght - 1 because we need last element (not Logic Lenght) 
+      $student->_id = $result[$studentLength-1]['id'] + 1; //$studentLength - 1 because we need last element (not Logic Lenght) 
       $student->_name = $_POST["name"];
       $student->_surname = $_POST["surname"];
       $student->_sidiCode = $_POST["sidi_code"];
@@ -47,13 +47,13 @@
       if(count($uri) != 0)
       {
         $body = file_get_contents("php://input"); //get the body of the requested URI
-        $decodeBody = json_decode($body, true);
+        $decodeBody = json_decode($body);
 
         $student->_id = $uri[count($uri)-1];
-        $student->_name = $decodeBody["_name"];
-        $student->_surname = $decodeBody["_surname"];
-        $student->_sidiCode = $decodeBody["_sidiCode"];
-        $student->_taxCode = $decodeBody["_taxCode"];
+        $student->_name = $decodeBody->name;
+        $student->_surname = $decodeBody->surname;
+        $student->_sidiCode = $decodeBody->sidiCode;
+        $student->_taxCode = $decodeBody->taxCode;
   
         $student->update($student);
         echo "Row updated";
