@@ -55,4 +55,4 @@
 
 <!-- curl --header "Content-Type: application/json" --request DELETE http://localhost:8080/student.php/id  -->
 
-<!-- curl --header "Content-Type: application/json" --request PUT --data "{"_name":"name", "_surname":"surname", "_sidiCode":"sidiCode", "_taxCode":"taxCode"}" http://localhost:8080/student.php/id  -->
+<!-- curl --header "Content-Type: application/json" --request PUT http://localhost:8080/student.php/1699 --data "{"name":"name", "surname":"surname","sidiCode":"sidiCode", "taxCode":"taxCode"}"  -->
